@@ -23,73 +23,153 @@ function sumarDosNumeros(a, b) {
   
   console.log(resultadoSuma1);
   
-  /*
-      1.- Crear funciones que hagan lo siguiente:
-          sumar dos números
-          restar dos números
-          multiplicar dos números
-          dividir dos números
-      
-      2.- Crear una función que me devuelva el nombre completo de una persona
+
+
+
   
-      3.- Crear una función que reciba el nombre, color, tamaño, peso y raza de un perro, y me devuelva un objeto que represente a ese perro 
-  */
+/* 1. Crear funciones que hagan lo siguiente: */
+
+
+//• Sumar dos números:
+
+  function addTwoNumbers(a, b) {
+    let result = a + b;
+    return result;
+  }
+
+  let addition = addTwoNumbers(6, 6)
+
+  console.log(addition)
+
+
+//• Restar dos números:
+
+  function subtractTwoNumbers(a, b) {
+    let result = a - b;
+    return result;
+  }
+
+  let subtraction = subtractTwoNumbers(8, 3)
+
+  console.log(subtraction)
+
+
+//• Multiplicar dos números:
+
+  function multiplyTwoNumbers(a, b) {
+    let result = a * b;
+    return result;
+  }
+
+  let multiplication = multiplyTwoNumbers(2, 3)
+
+  console.log(multiplication)
+
+
+//• Dividir dos números:
+
+  function divideTwoNumbers(a, b) {
+    let result = a / b;
+    return result;
+  }
+
+  let division = divideTwoNumbers(10, 5)
+
+  console.log(division)
+
+
+
+/*  2.- Crear una función que me devuelva el nombre completo de una persona. */
   
+
+  function returnName(name, lastname) {
+    let completename = name + lastname
+    return completename;
+  }
+
+  let providename = returnName("Gerardo", " Arce")
+  let providename2 = returnName("Shibe", " Sartoshi")
+  let providename3 = returnName("Pepe", " The Dog")
+
+  console.log(providename)
+  console.log(providename2)
+  console.log(providename3)
+
+
+
+/* 3.- Crear una función que reciba las siguientes propiedades:
+
+  • Nombre 
+  • Color 
+  • Tamaño 
+  • Peso
+  • Raza
+ 
+  La funcion debe retornar un objeto que represente a ese perro. */
+  
+
   function createDog(name, breed, color) {
-    let ownerName = "Israel";
-    let ownerAddress = "san simón";
-    let dog = { name, breed, color, ownerName, ownerAddress };
+    let ownerName = "Pepito";
+    let ownerAddress = "San Pepito";
+    let dog = { name, breed, color, ownerName, ownerAddress};
     return dog;
   }
+
+  let testDog = createDog("Rex", "German Shepherd", "Brown & Black");
+  console.log(testDog);
   
-  let perroDePrueba = createDog("Otto", "puddle", "blanco");
-  console.log(perroDePrueba);
+/* 4. Crear una función que reciba un nombre y haga lo siguiente:
+
+  • Si el nombre tiene más de 5 letras, imprimir en pantalla "el nombre es largo"
+  • Si no, imprimir "el nombre es corto" */
+
+  function analyzeWord(word) {
+    if (word.length > 5) {
+      console.log("The word has more than 5 characters")
+    } else if (word.length < 5) {
+      console.log("The word has less than 5 characters")
+    }}
   
-  /*
-      1.- crear una función que reciba un nombre y haga lo siguiente:
-          si el nombre tiene más de 5 letras, imprimir en pantalla "el nombre es largo"
-          si no, imprimir "el nombre es corto"
-  */
+  let new_word1 = analyzeWord("flowery")
+  let new_word2 = analyzeWord("jim")
+  let new_word3 = analyzeWord("pepito")
+  let new_word4 = analyzeWord("kim")
   
-  function evaluateNameLength(name) {
-    let nameLength = name.length;
-    let result = nameLength > 5 ? "El nombre es largo" : "El nombre es corto";
+/*
+5. Crear una función que reciba 2 números y me devuelva un texto con base en las condiciones siguientes:
+
+  • Si el resulta es par, devovler "tu resultado es par"
+  • Si es non, devolver "el resultado es non". */
+
+  function checkIfNumberIsOddOrEven(num1, num2){
+    if (num1 % 2 === 0){
+      console.log(num1 + " is even");
+    } else {
+      console.log(num1 + " is odd")
+    }
+    
+    if (num2 % 2 === 0){
+      console.log(num2 + " is even");
+    } else {
+      console.log(num2 + " is odd")
+    }}
   
-    return result;
+  let yournumbers1 = checkIfNumberIsOddOrEven(3, 8)
+  let yournumbers2 = checkIfNumberIsOddOrEven(56, 87)
+  let yournumbers3 = checkIfNumberIsOddOrEven(4, 10)
+  let yournumbers4 = checkIfNumberIsOddOrEven(64, 73)
+
+
+/* 3. Crear una función que reciba el nombre y apellidos de una persona
+y me devuelva la cantidad de caracteres de el nombre completo. */
+
+  function countCharacters(first_name, last_name){
+    let count = (first_name.length) + (last_name.length);
+    console.log(count)
   }
-  
-  let test1 = evaluateNameLength("Israel Salinas Martínez");
-  let test2 = evaluateNameLength("Nao");
-  console.log(test1);
-  console.log(test2);
-  /*
-      2.- Crear una función que reciba 2 números y me devuelva un texto con base en las condiciones siguientes:
-          si el resulta es par, devovler "tu resultado es par"
-          si es non, devolver "el resultado es non"
-  */
-  function evalateAdditionResult(firstNumber, secondNumber) {
-    let additionResult = firstNumber + secondNumber;
-    let result =
-      additionResult % 2 === 0 ? "El resultado es par" : "El resultado es non";
-    return result;
-  }
-  
-  let test3 = evalateAdditionResult(7, 12);
-  console.log(test3);
-  /*
-      3.- Crear una función que reciba el nombre y apellidos de una persona
-          y me devuelva la cantidad de caracteres de el nombre completo 
-  */
-  
-  function getFullNameLength(name, lastname) {
-    let fullName = `Mi nombre es: ${name} ${lastname} y ${evaluateNameLength(
-      name
-    )}`;
-    console.log(fullName);
-    let fullNameLength = fullName.length;
-    return fullNameLength;
-  }
-  
-  name + " " + fullname;
-  
-  getFullNameLength("Israel", "Salinas Martínez");
+
+  let yourname1 = countCharacters("Gerardo", "Arce")
+  let yourname2 = countCharacters("Antonio", "Garcia")
+  let yourname3 = countCharacters("Jim", "Torres")
+  let yourname4 = countCharacters("Katie", "Zu")
+  let yourname5 = countCharacters("Pepito", "Sanchez")

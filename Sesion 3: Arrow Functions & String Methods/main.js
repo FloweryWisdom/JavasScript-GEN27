@@ -90,13 +90,13 @@ const myString = "The quick brown fox jumps over over the lazy dog.";
 
 /* 1. Necesitamos saber de cualquier string, el caracter que se encuentre en cualquier posición que indiquemos. Si la posición excede la cantidad de caracteres, indicar que no es posible ejecutar el ejercicio. */
 
-const findCharacter = (string, index ) => {
-    index >= 0 && index < string.length
-    ? console.log(`Character at index ${index} is: ${string.charAt(index)}`)
-    : console.log(`Error: Index is out of range.`)
-}
-let output = findCharacter(myString, 23)
-let output2 = findCharacter(myString, 75)
+    const findCharacter = (string, index ) => {
+        index >= 0 && index < string.length
+        ? console.log(`Character at index ${index} is: ${string.charAt(index)}`)
+        : console.log(`Error: Index is out of range.`)
+    }
+    let output = findCharacter(myString, 23)
+    let output2 = findCharacter(myString, 75)
 
       
 /* 2. Necesitamos saber si un texto cualquiera tiene dentro otro string.
@@ -104,30 +104,31 @@ let output2 = findCharacter(myString, 75)
         Ejemplo: "Israel" "ra" - si lo incluye
         Ejemplo: "Israel" "ac" - no lo incluye */
 
-const checkSubstring = (primaryString, userInput) => {
-    primaryString.includes(userInput)
-    ? console.log(`${userInput} is in the string`)
-    : console.log(`${userInput} is not in the string`)
-}
-let userInput = "xr"; checkSubstring(myString, userInput);
-let userInput2 = "fox"; checkSubstring(myString, userInput2)
+    const checkSubstring = (primaryString, userInput) => {
+        primaryString.includes(userInput)
+        ? console.log(`${userInput} is in the string`)
+        : console.log(`${userInput} is not in the string`)
+    }
+    let userInput = "xr"; checkSubstring(myString, userInput);
+    let userInput2 = "fox"; checkSubstring(myString, userInput2)
 
 
 /* 3. Necesito saber la cantidad de palabras de un texto cualquiera. */
 
-const getFullNameLength = string => console.log(`${string.length}`);
+    const getFullNameLength = string => console.log(`${string.length}`);
 
-let length3 = getFullNameLength(myString) 
+    let length3 = getFullNameLength(myString) 
 
 
 /* 4. Necesito reemplazar todas las coincidencias de una palabra dentro de un texto, con otro texto.
 
         Ejemplo: "mi perro es gris y es un latoso" "es" "no es"
         Ejemplo:"mi perro no es gris y no es un latoso" */
-const replaceSubstring = (string, target, replacement) =>
-    string.replace(new RegExp(target, "gi"), replacement);
+        
+    const replaceSubstring = (string, target, replacement) =>
+        string.replace(new RegExp(target, "gi"), replacement);
 
-let originalString = "Flowery is a person and is awesome";
-let newString = replaceSubstring(originalString, "is", "is not");
+    let originalString = "Flowery is a person and is awesome";
+    let newString = replaceSubstring(originalString, "is", "is not");
 
-console.log(newString);
+    console.log(newString);
