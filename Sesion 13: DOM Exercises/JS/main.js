@@ -640,79 +640,50 @@
   //Create a card using Bootstrap to display a characters
   //picture, name and number of times he or she was in episodes. 
   
-const getCharacterInfo = (character) => {
-  return {
-    image: character.image,
-    name: character.name,
-    numEpisodes: character.episode.length
-  };
-};
 
+const createCharacterElement = (character) => {
+  
+  //create new card element:
+  let cardElement = document.createElement("div")
+  cardElement.className = "card"
+  cardElement.style.width = "18rem"
 
+  //create the image element: 
+  let cardImageElement = document.createElement("img")
+  cardImageElement.className = "card-img-top"
+  cardImageElement.src = character.image
+  cardImageElement.alt = "card image cap"
+  cardElement.appendChild(cardImageElement)
 
-// Example usage
-const characterInfo = getCharacterInfo(data[0]);
-console.log(characterInfo);
+  //create the card body element:
+  let cardBodyElement = document.createElement("div")
+  cardBodyElement.className = "card-body"
+  cardElement.appendChild(cardBodyElement)
 
+  //create the title element
+  let cardTitleElement = document.createElement("h5")
+  cardTitleElement.className = "card-title"
+  cardTitleElement.textContent = character.name
+  cardBodyElement.appendChild(cardTitleElement)
 
+  //create text element:
+  let cardTextElement = document.createElement("p")
+  cardTextElement.className = "card-text"
+  cardTextElement.textContent = "Number of episodes: " + character.episode.length
+  cardBodyElement.appendChild(cardTextElement)
 
-//jhfksdjhfkdsñjfhdkfjhfkjh
-
-
-//Create list element
-const createCharacterItem = (character) => {
-
-  let characterItem = document.createElement("div")
-
-  //Create image element
-  let productImgElement = document.createElement("img")
-  imageElement.src = character.image
-  characterItem.appendChild(productImgElement)
-
-  //Create title element
-  let titleElement = document.createElement("h5")
-  let titleText = document.createTextNode(character.title)
-  titleElement.appendChild(titleText)
-  characterItem.appendChild(titleElement)
-
-  //Create number of episodes element
-  let episodesElement = document.createElement("p")
-  let episodesText = document.createTextNode("Number of episodes: " + character.episode.length)
-  episodesElement.appendChild(episodesText)
-  characterItem.appendChild(episodesElement)
-
-
-  return characterItem
+  return cardElement
 }
 
-const printCharactertsItem = (charactersArray, listId) => {
-  let characterItem = document.getElementById(listId)
-  charactersArray.forEach( character => {
-      let card = createCharacterItem(character)
-      characterItem.appendChild(card)
+
+
+const printCharacterCards = (characters, Id) => {
+  let card = document.getElementById(Id)
+  characters.forEach(character => {
+    let characterCard = createCharacterElement(character)
+    card.appendChild(characterCard)
+
   })
 }
 
-
-
-
-const createCharacterItems = (character) => {
-  let cardTitleElement = document.querySelector("card-title");
-  let cardImageElement = document.querySelector("card-img-top");
-  let cardTextElement = document.querySelector("card-text");
-
-  cardTitleElement.textContent = character.title;
-  cardImageElement.src = character.image;
-  cardTextElement.textContent = "Number of episodes: " + character.episode.length;
-};
-
-createCharacterItem(data); 
-
-const printCharactersItems = (charactersArray, listId) => {
-  let characterList = document.getElementById(listId);
-  charactersArray.forEach((character) => {
-    let card = createCharacterItems(character);
-    characterList.appendChild(card);
-  })}
-
-const test1 = printCharactersItems(data, "card")
+let test1 = printCharacterCards(data, "card1")
