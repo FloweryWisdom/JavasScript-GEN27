@@ -754,4 +754,3 @@ document.getElementsByClassName("removeButton")[0].addEventListener("click", () 
   removeLastCharacter(data) //set your array here
   organizeAndPrintCards(data, "card-container") //reprint the cards after removing the last item
 })
-

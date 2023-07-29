@@ -39,3 +39,12 @@ NOTE: HTML allows event handler attributes, with JavaScript code, to be added to
 (can be added with single or double quotes)
 <element event = "some-javascript">/ <element event = `some-javascript`>
 
+ADDING EVENT LISTENERS:
+
+element.addEventListener(event, callBack)
+
+document.getElementById("search").addEventListener(`keyup`, (event) => {
+    <!-- event.target representa el elemento que recibe el evento -->
+    let value = event.target.value<!--obtengo lo que esta escrito en el input -->
+    console.log(value)
+})
