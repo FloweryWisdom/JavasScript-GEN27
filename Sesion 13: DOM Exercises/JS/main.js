@@ -637,9 +637,24 @@
     },
   ];
 
-  //Create a card using Bootstrap to display a characters
-  //picture, name and number of times he or she was in episodes. 
-  
+
+
+//Create a card using Bootstrap to display a characters
+//picture, name and number of times he or she was in episodes. 
+
+  //add styiling to card container:
+const cardContainerElement = document.querySelector(".card-container")
+
+
+  //check if element exists (not null) before applying styles:
+if (cardContainerElement) {
+  //apply the styles to the element:
+  cardContainerElement.style.display = "flex"
+  cardContainerElement.style.flexWrap = "wrap"
+  cardContainerElement.style.gap = "10px"
+}
+
+
 
 const createCharacterElement = (character) => {
   
@@ -677,13 +692,66 @@ const createCharacterElement = (character) => {
 
 
 
-const printCharacterCards = (characters, Id) => {
-  let card = document.getElementById(Id)
-  characters.forEach(character => {
-    let characterCard = createCharacterElement(character)
-    card.appendChild(characterCard)
+//function to print character cards in rows:
+const printCharacterCards = (characters, className) => {
 
-  })
+  //specify index number of the element class to be used (there migt be multiple with the same class)
+  let cardsContainer = document.getElementsByClassName(className)[0]
+
+
+  //create rows to hold five cards:
+  for (let b = 0; b < characters.length; b += 5) {
+    let row = document.createElement("div")
+    row.className = "row"
+
+    //add up to five cards to the row: 
+    for (let c = b; c < b + 5 && c < characters.length; c++ ){
+      let characterCard = createCharacterElement(characters[c])
+      row.appendChild(characterCard)
+    }
+    cardsContainer.appendChild(row)
+  }
 }
 
-let test1 = printCharacterCards(data, "card1")
+
+//const test1 = printCharacterCards(data, "card-container")
+
+
+/* 2. Sort your character cards based on the number of episodes: */
+
+
+
+//function to sort characters based on episodes number: 
+const sortByEpisodes = (characters) => {
+  return characters.sort((a, b) => a.episode.length - b.episode.length)
+}
+
+//main function to organize and print character cards: 
+const organizeAndPrintCards = (characters, className) => {
+  //sort characters based on the number of episodes: 
+  const sortedCharacters = sortByEpisodes(characters)
+
+  //print the character cards in rows:
+  printCharacterCards(sortedCharacters, className)
+}
+
+const test2 = organizeAndPrintCards(data, "card-container")
+
+
+
+/* 3. Create a function to remove last character card in the arry: */
+
+
+
+//js function to remove last item from the array: 
+const removeLastCharacter = (characters) => {
+  characters.splice(characters.length -1, 1) //removes the last item in an array
+  
+}
+
+//add event listener to the button to call the `removeLastCharacter` function when the button is clicked:
+document.getElementsByClassName("removeButton")[0].addEventListener("click", () => {
+  removeLastCharacter(data) //set your array here
+  organizeAndPrintCards(data, "card-container") //reprint the cards after removing the last item
+})
+
