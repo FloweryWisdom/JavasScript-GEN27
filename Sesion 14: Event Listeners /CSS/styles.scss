@@ -1,0 +1,16 @@
+.button {
+    border: none;
+    background: lightgreen;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 3rem;
+}
+
+.button.active {
+    background: grey;
+    color: lightgreen
+}
