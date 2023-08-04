@@ -8,3 +8,4 @@ Flowery's notes for session 14:
 
  • Callback: is a function which is to be executed after another function has finished execution.
 
+Will be adding more notes later on. 

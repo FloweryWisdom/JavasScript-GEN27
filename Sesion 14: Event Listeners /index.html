@@ -28,21 +28,16 @@
         </div>
         <div class="row">
             <div class="col-12 div col-md-6"> <h1>Crear comentario</h1>
-            <form action="">
-                <div class="form-group"><input type="text" class="form-control" placeholder="Autor"></div>
-                <div class="form-group"><input type="text" class="form-control" placeholder="Escribe tu comentario"></div>
+            <form id="comment-form"  action="">
+                <div class="form-group"><input type="text" class="form-control" placeholder="Autor" name="author"></div>
+                <div class="form-group"><input type="text" class="form-control" placeholder="Escribe tu comentario" name="comment"></div>
             </form>
-            <button class="btn btn-primary"  type="button">Guardar comentario</button>
+            <button id="save-comment"  class="btn btn-primary"  type="button">Guardar comentario</button>
             </div>
             <div class="col-12 div col-md-6"> 
                 <h1>Lista de comentarios</h1>
-                <div class="comment-wrapper">
-                    <div class="card">
-                        <div class="card-body">
-                            {nombre del autor} : 
-                            {comentario}
-                        </div>
-                    </div>
+                <div id="comment-wrapper">
+                    
                 </div>
             </div>
         </div>

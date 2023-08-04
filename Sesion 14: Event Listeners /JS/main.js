@@ -42,19 +42,29 @@ let comments = [
 
 
 const createCommentBox = (commentData) => {
-    let {author, comment} = commentData
+    let {author, comment, id} = commentData
     let card = document.createElement("div")
     card.classList.add("card")
 
 
-    let cardBody = documentCreateElement("div")
+    let cardBody = document.createElement("div")
     cardBody.classList.add("card-body")
 
+    let deleteButton = document.createElement("button")
+    deleteButton.classList.add("btn", "btn-danger")
+    deleteButton.innerText = "Delete comment"
+
+    deleteButton.addEventListener("click", ()=> {
+        let result = comments.filter(comment => comment.id !== id)
+        comments = result
+        printAllComments(comments)
+
+    })
 
     let cardText = document.createTextNode(`${author} : ${comment}`)
 
 
-    cardBody.append(cardText)
+    cardBody.append(cardText, deleteButton)
     card.append(cardBody)
 
     return card 
@@ -70,6 +80,39 @@ const printAllComments = (commentsArray) => {
     })
 }
 
-const test1 = printAllComments(comments)
+printAllComments(comments)
 
 
+let commentObject = {}
+
+
+
+document.querySelectorAll("#comment-form input").forEach(input => {
+    input.addEventListener("keyup", (event) => {
+        let value = event.target.value
+        let property = event.target.name
+        console.log(`${property} : ${value}`)
+        commentObject[property] = value
+        console.log(`${commentObject}`)
+    })
+}) //this will return a node list.
+
+const resetForm = (formId) => {
+    let fields = document.querySelectorAll(`#${formId} input`)
+    fields.forEach(field => field.value = "")
+}
+
+document.getElementById("save-comment").addEventListener("click", ()=> {
+    comments = [...comments, {...commentObject, id: new Date().getTime()}]
+    console.log(comments)
+    printAllComments(comments)
+    resetForm("comment-form")
+    commentObject = {}
+})
+
+
+//hw add img, title, author and comment to post
+
+//hw2 figure out how to edit the post
+
+//hw3 investigate "Fetch"
